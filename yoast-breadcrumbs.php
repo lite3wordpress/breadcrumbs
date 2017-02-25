@@ -227,7 +227,7 @@ function yoast_breadcrumb($prefix = '', $suffix = '', $display = true) {
 		} 
 		if (is_single() && $opt['singlecatprefix']) {
 			$cats = get_the_category();
-			$cat = $cats[0];
+			$cat = empty($cats) ? false :$cats[0];
 			if ( is_object($cat) ) {
 				if ($cat->parent != 0) {
 					$output .= get_category_parents($cat->term_id, true, " ".$opt['sep']." ");
